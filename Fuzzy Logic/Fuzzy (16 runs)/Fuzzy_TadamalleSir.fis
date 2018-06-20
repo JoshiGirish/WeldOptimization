@@ -1,0 +1,84 @@
+[System]
+Name='Fuzzy_TadamalleSir'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=16
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Power'
+Range=[1600 2200]
+NumMFs=4
+MF1='low':'trimf',[1600 1600 1800]
+MF2='m1':'trimf',[1600 1800 2000]
+MF3='m2':'trimf',[1800 2000 2200]
+MF4='high':'trimf',[2000 2200 2200]
+
+[Input2]
+Name='Speed'
+Range=[3 6]
+NumMFs=4
+MF1='low':'trimf',[3 3 4]
+MF2='m1':'trimf',[3 4 5]
+MF3='m2':'trimf',[4 5 6]
+MF4='high':'trimf',[5 6 6]
+
+[Input3]
+Name='Duration'
+Range=[1 2.5]
+NumMFs=4
+MF1='low':'trimf',[1 1 1.5]
+MF2='m1':'trimf',[1 1.5 2]
+MF3='m2':'trimf',[1.5 2 2.5]
+MF4='high':'trimf',[2 2.5 2.5]
+
+[Output1]
+Name='Width'
+Range=[594.92 1081.36]
+NumMFs=4
+MF1='low':'trimf',[594.9 594.9 757.1]
+MF2='m1':'trimf',[594.9 757.1 919.2]
+MF3='m2':'trimf',[757.1 919.2 1081]
+MF4='high':'trimf',[919.2 1081 1081]
+
+[Output2]
+Name='Depth'
+Range=[166.1 777.97]
+NumMFs=4
+MF1='low':'trimf',[166.1 166.1 370.1]
+MF2='m1':'trimf',[166.1 370.1 574]
+MF3='m2':'trimf',[370.1 574 778]
+MF4='high':'trimf',[574 778 778]
+
+[Output3]
+Name='Strength'
+Range=[167.65 369.52]
+NumMFs=4
+MF1='low':'trimf',[167.6 167.6 234.9]
+MF2='m1':'trimf',[167.7 234.9 302.2]
+MF3='m2':'trimf',[234.9 302.2 369.5]
+MF4='high':'trimf',[302.2 369.5 369.5]
+
+[Rules]
+1 1 1, 3 1 1 (1) : 1
+2 1 2, 4 4 4 (1) : 1
+3 1 3, 1 4 4 (1) : 1
+4 1 4, 4 4 4 (1) : 1
+2 2 1, 1 1 1 (1) : 1
+3 2 2, 1 2 4 (1) : 1
+4 2 3, 3 4 4 (1) : 1
+1 2 4, 4 3 4 (1) : 1
+3 3 1, 3 1 1 (1) : 1
+4 3 2, 4 4 4 (1) : 1
+1 3 3, 4 2 3 (1) : 1
+2 3 4, 4 4 4 (1) : 1
+4 4 1, 1 1 1 (1) : 1
+1 4 2, 2 2 1 (1) : 1
+2 4 3, 3 2 3 (1) : 1
+3 4 4, 4 3 4 (1) : 1

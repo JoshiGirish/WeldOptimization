@@ -1,0 +1,81 @@
+[System]
+Name='FinalWeldParameters'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=19
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Power'
+Range=[1500 1700]
+NumMFs=3
+MF1='low':'gaussmf',[33.98 1500]
+MF2='medium':'gaussmf',[33.97 1600]
+MF3='high':'gaussmf',[33.97 1700]
+
+[Input2]
+Name='Speed'
+Range=[4 5]
+NumMFs=3
+MF1='slow':'gaussmf',[0.1699 4]
+MF2='avg':'gaussmf',[0.1699 4.5]
+MF3='fast':'gaussmf',[0.1699 5]
+
+[Input3]
+Name='PulseDuration'
+Range=[1 2]
+NumMFs=3
+MF1='low':'gaussmf',[0.2123 1]
+MF2='medium':'gaussmf',[0.2123 1.5]
+MF3='high':'gaussmf',[0.2123 2]
+
+[Output1]
+Name='DOP'
+Range=[293 459]
+NumMFs=3
+MF1='less':'gaussmf',[35.24 293]
+MF2='avg':'gaussmf',[35.24 376]
+MF3='more':'gaussmf',[35.24 459]
+
+[Output2]
+Name='BW'
+Range=[830 1022]
+NumMFs=3
+MF1='short':'gaussmf',[40.77 830]
+MF2='avg':'gaussmf',[40.77 926]
+MF3='long':'gaussmf',[40.77 1022]
+
+[Output3]
+Name='UTS'
+Range=[86 393]
+NumMFs=3
+MF1='low':'gaussmf',[65.18 86]
+MF2='medium':'gaussmf',[65.18 239.5]
+MF3='high':'gaussmf',[65.18 393]
+
+[Rules]
+1 3 1, 0 0 1 (1) : 1
+3 1 3, 0 0 2 (1) : 1
+1 3 1, 0 1 0 (1) : 1
+1 1 1, 0 0 1 (1) : 1
+1 1 3, 0 0 3 (1) : 1
+1 3 3, 0 0 3 (1) : 1
+3 1 1, 0 0 1 (1) : 1
+3 3 1, 0 0 1 (1) : 1
+1 1 1, 0 1 0 (1) : 1
+3 1 3, 0 3 0 (1) : 1
+3 3 1, 0 2 0 (1) : 1
+3 3 3, 0 3 0 (1) : 1
+1 1 1, 2 0 0 (1) : 1
+1 1 3, 3 0 0 (1) : 1
+1 3 1, 1 0 0 (1) : 1
+3 1 1, 2 0 0 (1) : 1
+3 1 3, 3 0 0 (1) : 1
+1 3 3, 3 0 0 (1) : 1
+3 3 3, 3 0 0 (1) : 1
